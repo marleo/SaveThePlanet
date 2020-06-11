@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/scrolling_background.gd" type="Script" id=1]
+[ext_resource path="res://assets/image8.jpg" type="Texture" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform float scroll_speed;
+void fragment() {
+	vec2 shifteduv = UV;
+	shifteduv.x -= TIME * scroll_speed;
+	vec4 col = texture(TEXTURE, shifteduv);
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scroll_speed = null
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="image" type="TextureRect" parent="Background"]
+material = SubResource( 2 )
+margin_left = 590.0
+margin_right = 1614.0
+margin_bottom = 590.0
+rect_rotation = 90.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scroll_speed = 0.1
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Score" type="Node2D" parent="."]
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Emitters" type="Node2D" parent="."]
+
+[node name="Globals" type="Node2D" parent="."]
