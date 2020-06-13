@@ -1,0 +1,265 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Asteroid.gd" type="Script" id=1]
+[ext_resource path="res://scripts/Pivot.gd" type="Script" id=2]
+[ext_resource path="res://assets/rocket-clipart-png-1-transparent.png" type="Texture" id=3]
+[ext_resource path="res://assets/planet.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Sprite.gd" type="Script" id=5]
+[ext_resource path="res://assets/asteroid.png" type="Texture" id=6]
+[ext_resource path="res://scripts/asteroid.gd" type="Script" id=7]
+[ext_resource path="res://fonts/gugi-55.tres" type="DynamicFont" id=8]
+[ext_resource path="res://scripts/UI.gd" type="Script" id=9]
+[ext_resource path="res://fonts/Gugi-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scenes/GameOver.gd" type="Script" id=11]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 591.305
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 118.712
+height = 233.679
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="DynamicFont" id=12]
+size = 55
+use_filter = true
+font_data = ExtResource( 10 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 205.971
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[node name="Gamescreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BackgroundColor" type="ColorRect" parent="Background"]
+margin_left = -35.0
+margin_top = -22.0
+margin_right = 614.0
+margin_bottom = 1196.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="World" type="Sprite" parent="Player"]
+position = Vector2( 288, 512 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="WorldArea" type="Area2D" parent="Player/World"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/World/WorldArea"]
+shape = SubResource( 1 )
+
+[node name="Pivot" type="Node2D" parent="Player/World"]
+script = ExtResource( 2 )
+
+[node name="Rocket" type="Sprite" parent="Player/World/Pivot"]
+position = Vector2( 0, -800 )
+rotation = 1.5708
+texture = ExtResource( 3 )
+
+[node name="RocketArea" type="Area2D" parent="Player/World/Pivot/Rocket"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/World/Pivot/Rocket/RocketArea"]
+shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="Player"]
+
+[node name="PlayerInput" type="Node2D" parent="."]
+
+[node name="InputArea" type="Button" parent="PlayerInput"]
+margin_top = 55.0
+margin_right = 576.0
+margin_bottom = 1024.0
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+action_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Back" type="Button" parent="UI"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 118.0
+margin_bottom = 57.0
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_fonts/font = ExtResource( 8 )
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Node2D" parent="."]
+position = Vector2( 260, 80 )
+
+[node name="ScoreText" type="Label" parent="Score"]
+margin_left = -260.0
+margin_top = 20.0
+margin_right = 316.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 12 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="spawn1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -72.6314, 243.158 )
+
+[node name="spawn2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -67.3683, 501.052 )
+
+[node name="spawn3" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -67.3682, 731.578 )
+
+[node name="spawn4" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 606.315, 737.894 )
+
+[node name="spawn5" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 603.157, 490.526 )
+
+[node name="spawn6" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 599.999, 250.526 )
+
+[node name="spawn7" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 285.957, -31.207 )
+
+[node name="spawn8" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 294.356, 1202.52 )
+
+[node name="spawn9" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -59.1011, 1044.03 )
+
+[node name="spawn10" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 609.046, 1053.08 )
+
+[node name="spawn11" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 602.584, -32.4993 )
+
+[node name="spawn12" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -70.5148, 97.5618 )
+
+[node name="spawn13" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -69.0075, 380.941 )
+
+[node name="spawn14" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -69.0075, 614.579 )
+
+[node name="spawn15" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -67.5001, 866.304 )
+
+[node name="spawn16" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 16.9108, 1211.48 )
+
+[node name="spawn17" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 532.421, 1211.48 )
+
+[node name="spawn18" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 607.787, 873.841 )
+
+[node name="spawn19" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 601.758, 601.013 )
+
+[node name="spawn20" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 601.758, 371.897 )
+
+[node name="spawn21" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 606.28, 97.5618 )
+
+[node name="spawn22" type="Position2D" parent="SpawnPoints"]
+position = Vector2( -55.4414, -32.0693 )
+
+[node name="Asteroids" type="Node2D" parent="."]
+
+[node name="asteroid" type="Sprite" parent="Asteroids"]
+position = Vector2( -94.2248, 282.891 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="Asteroids/asteroid"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroids/asteroid/Area2D"]
+position = Vector2( 4.82047, 0 )
+shape = SubResource( 5 )
+
+[node name="Tween" type="Tween" parent="Asteroids/asteroid"]
+
+[node name="GameOver" type="Node2D" parent="."]
+position = Vector2( 576, 0 )
+script = ExtResource( 11 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver"]
+margin_top = 74.0
+margin_right = 576.0
+margin_bottom = 1024.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="GameOver/VBoxContainer"]
+margin_top = 429.0
+margin_right = 576.0
+margin_bottom = 470.0
+custom_fonts/font = ExtResource( 8 )
+text = "Game Over"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartAgain" type="Button" parent="GameOver/VBoxContainer"]
+margin_top = 474.0
+margin_right = 576.0
+margin_bottom = 521.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/focus = SubResource( 15 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 0.262745, 0.741176, 0.227451, 1 )
+text = "Start Again?"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="GameOver"]
+[connection signal="pressed" from="PlayerInput/InputArea" to="Player/World/Pivot" method="_on_Button_pressed"]
+[connection signal="pressed" from="UI/Back" to="UI" method="_on_Back_pressed"]
+[connection signal="area_entered" from="Asteroids/asteroid/Area2D" to="Asteroids/asteroid" method="_on_Area2D_area_entered"]
+[connection signal="pressed" from="GameOver/VBoxContainer/StartAgain" to="GameOver" method="_on_StartAgain_pressed"]
