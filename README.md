@@ -6,9 +6,9 @@ PC: Left-Click inside the game view to change orbit direction.
 Android: Tap on the screen to change orbit direction.
 
 <h2>Install / How to play</h2>
-Compiled, ready to play versions of the game are inside the build folder.
-PC: [SaveThePlanet.exe](build/SaveThePlanet.exe) (Must download .pck as well)
-Android: [SaveThePlanet.apk](build/SaveThePlanet.apk)
+Compiled, ready to play versions of the game are inside the build folder.<br>
+PC: build/SaveThePlanet.exe (Must download .pck as well)<br>
+Android: build/SaveThePlanet.apk
 
 <h2>Additional Files</h3>
 The Game Concept Document & the Post Mortem are also inside the /build folder.
